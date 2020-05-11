@@ -1,11 +1,7 @@
 package com.luxoft.springdb.lab2.model;
 
-import org.hibernate.annotations.Table;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-//import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
@@ -36,6 +32,7 @@ public class Country implements Serializable {
 
 	@Id
 	@Column(nullable = false)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	public int getId() {
 		return id;
 	}
@@ -44,7 +41,7 @@ public class Country implements Serializable {
 		this.id = id;
 	}
 
-	@Column
+	@Column(name="NAME")
 	public String getName() {
 		return name;
 	}
@@ -53,7 +50,7 @@ public class Country implements Serializable {
 		this.name = name;
 	}
 
-	@Column(name="code_name")
+	@Column(name="CODE_NAME")
 	public String getCodeName() {
 		return codeName;
 	}
